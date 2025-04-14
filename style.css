@@ -53,6 +53,11 @@ body {
   text-align: center;
 }
 
+#email-error{
+  color: red;
+  text-align: left;
+}
+
 .login-form h2 {
   font-size: 1.5rem;
   margin-bottom: var(--spacing);
