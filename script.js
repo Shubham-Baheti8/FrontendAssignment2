@@ -11,9 +11,14 @@ form.addEventListener("submit", function (e) {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
+  const emailError = document.getElementById("email-error");
   if (!email || !validateEmail(email)) {
-    alert("Please enter a valid email address.");
+    emailError.textContent = "Please enter a valid email address.";
+    emailError.style.display = "block";
     return;
+  } else {
+    emailError.textContent = "";
+    emailError.style.display = "none";
   }
 
   if (!password) {
