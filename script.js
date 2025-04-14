@@ -3,17 +3,18 @@ const form = document.querySelector(".login-form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const togglePasswordBtn = document.getElementById("togglePassword");
+const emailErrorText = "Please enter a valid email address.";
 
 // Form validation
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
+  const email = emailInput.value?.trim(); // Safely access and trim the email value
+  const password = passwordInput.value?.trim(); 
 
   const emailError = document.getElementById("email-error");
   if (!email || !validateEmail(email)) {
-    emailError.textContent = "Please enter a valid email address.";
+    emailError.textContent = emailErrorText;
     emailError.style.display = "block";
     return;
   } else {
@@ -26,7 +27,7 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  alert("Login successful! (This is a placeholder)");
+  alert("Login successful!");
 });
 
 // Email format validation
